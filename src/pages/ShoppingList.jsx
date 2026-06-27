@@ -111,7 +111,7 @@ export default function ShoppingList() {
   const checked = items.filter((i) => i.checked);
 
   return (
-    <div className="min-h-screen bg-[#FAF6EF]">
+    <div className="min-h-screen bg-[#FAF6EF] lg:max-w-2xl lg:mx-auto lg:pt-2">
       {/* Header */}
       <div className="px-5 pt-14 pb-4">
         <div className="flex items-center justify-between mb-1">

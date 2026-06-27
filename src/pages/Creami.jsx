@@ -9,9 +9,9 @@ export default function Creami() {
   const countFor = (key) => CREAMI_RECIPES.filter((r) => getCreamiType(r) === key).length;
 
   return (
-    <div className="min-h-screen bg-[#FAF6EF]">
+    <div className="min-h-screen bg-[#FAF6EF] lg:max-w-3xl lg:mx-auto">
       {/* Header */}
-      <div className="px-5 pt-14 pb-4 flex items-center gap-3">
+      <div className="px-5 pt-14 lg:pt-10 pb-4 flex items-center gap-3">
         <button
           onClick={() => navigate("/")}
           className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm shrink-0"
@@ -38,7 +38,7 @@ export default function Creami() {
       </div>
 
       {/* Type tiles */}
-      <div className="px-5 flex flex-col gap-4 pb-10">
+      <div className="px-5 grid grid-cols-1 sm:grid-cols-3 gap-4 pb-10">
         {CREAMI_TYPES.map((t, i) => (
           <motion.div
             key={t.key}

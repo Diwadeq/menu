@@ -8,8 +8,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#FAF6EF]">
       {/* Header */}
-      <div className="px-6 pt-14 pb-6">
-        <div className="flex items-center gap-2 mb-1">
+      <div className="px-6 pt-14 lg:pt-10 pb-6">
+        <div className="flex items-center gap-2 mb-1 lg:hidden">
           <Leaf size={20} className="text-[#A8C5A0]" />
           <span className="text-sm font-bold text-[#A8C5A0] tracking-widest uppercase">HealthyBite</span>
         </div>
@@ -20,7 +20,7 @@ export default function Home() {
         <p className="text-[#8a8070] mt-2 text-sm font-medium">Pick a vibe and we'll find your meal</p>
       </div>
 
-      <div className="px-6 flex flex-col gap-4 pb-4">
+      <div className="px-6 grid grid-cols-1 sm:grid-cols-2 gap-4 pb-4">
         {/* Sweet */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -75,7 +75,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25, duration: 0.4 }}
           onClick={() => navigate("/creami")}
-          className="relative rounded-3xl overflow-hidden cursor-pointer bg-gradient-to-r from-[#1a3a5c] to-[#2a6090] active:scale-[0.98] transition-transform shadow-lg"
+          className="relative rounded-3xl overflow-hidden cursor-pointer bg-gradient-to-r from-[#1a3a5c] to-[#2a6090] active:scale-[0.98] transition-transform shadow-lg sm:col-span-2"
         >
           <div className="px-6 py-4 flex items-center justify-between">
             <div>

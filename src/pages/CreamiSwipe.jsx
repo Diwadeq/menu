@@ -126,7 +126,7 @@ export default function CreamiSwipe() {
   return (
     <div className="min-h-screen bg-[#12161c] flex flex-col">
       {/* Header */}
-      <div className="flex items-center justify-between px-5 pt-14 pb-4">
+      <div className="flex items-center justify-between px-5 pt-14 pb-4 w-full max-w-md mx-auto">
         <button
           onClick={() => navigate("/creami")}
           className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center"
@@ -140,7 +140,7 @@ export default function CreamiSwipe() {
       </div>
 
       {/* Card stack */}
-      <div className="flex-1 px-5 relative">
+      <div className="flex-1 px-5 relative w-full max-w-md mx-auto">
         {finished || deck.length === 0 ? (
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
             <div className="text-6xl mb-4">🍦</div>

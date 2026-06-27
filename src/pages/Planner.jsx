@@ -111,7 +111,7 @@ export default function Planner() {
   }, {});
 
   return (
-    <div className="min-h-screen bg-[#FAF6EF]">
+    <div className="min-h-screen bg-[#FAF6EF] lg:max-w-2xl lg:mx-auto lg:pt-2">
       {toast && (
         <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-[#2a2a2a] text-white text-sm font-bold px-5 py-3 rounded-2xl shadow-lg">
           {toast}

@@ -65,9 +65,9 @@ export default function RecipeDetail() {
   const imageUrl = recipe.imageUrl || PLACEHOLDER_IMAGES[recipe.category] || PLACEHOLDER_IMAGES.Dinner;
 
   return (
-    <div className="min-h-screen bg-[#FAF6EF]">
+    <div className="min-h-screen bg-[#FAF6EF] lg:max-w-2xl lg:mx-auto lg:shadow-xl">
       {/* Hero photo */}
-      <div className="relative h-72 overflow-hidden rounded-b-[2.5rem]">
+      <div className="relative h-72 lg:h-80 overflow-hidden rounded-b-[2.5rem]">
         <img
           src={imageUrl}
           alt={recipe.title}

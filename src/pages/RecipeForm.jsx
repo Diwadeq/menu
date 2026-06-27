@@ -111,7 +111,7 @@ export default function RecipeForm() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FAF6EF]">
+    <div className="min-h-screen bg-[#FAF6EF] lg:max-w-2xl lg:mx-auto">
       {/* Header */}
       <div className="bg-[#FAF6EF] sticky top-0 z-20 px-5 pt-14 pb-4 flex items-center gap-3 border-b border-[#e8e0d5]">
         <button

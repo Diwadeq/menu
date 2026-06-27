@@ -198,7 +198,7 @@ export default function Library() {
             <p className="text-xs text-[#8a8070] font-semibold mb-3">
               {filtered.length} recipe{filtered.length !== 1 ? "s" : ""}
             </p>
-            <div className="grid grid-cols-2 gap-4 pb-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 pb-6">
               {filtered.map((recipe) => (
                 <RecipeCard
                   key={recipe.id}

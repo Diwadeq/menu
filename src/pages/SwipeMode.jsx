@@ -195,7 +195,7 @@ export default function SwipeMode() {
 
   return (
     <div className="min-h-screen bg-[#1a1a1a] flex flex-col">
-      <div className="flex items-center justify-between px-5 pt-14 pb-4">
+      <div className="flex items-center justify-between px-5 pt-14 pb-4 w-full max-w-md mx-auto">
         <button
           onClick={() => navigate(from)}
           className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center"
@@ -206,7 +206,7 @@ export default function SwipeMode() {
         <div className="w-10" />
       </div>
 
-      <div className="flex-1 px-5 relative">
+      <div className="flex-1 px-5 relative w-full max-w-md mx-auto">
         {loading ? (
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="w-10 h-10 border-4 border-white/20 border-t-white rounded-full animate-spin" />
