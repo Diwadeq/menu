@@ -15,7 +15,7 @@ import SavoryHub from '@/pages/SavoryHub';
 
 function App() {
   return (
-    <Router basename="/foodmenu">
+    <Router basename="/healthybites">
       <ScrollToTop />
       <Routes>
         {/* Fullscreen — no bottom nav */}

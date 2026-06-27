@@ -1,4 +1,5 @@
 import { Outlet, Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 import { Home, BookOpen, CalendarDays, ShoppingCart, Leaf, Snowflake } from "lucide-react";
 
 const navItems = [
@@ -48,9 +49,15 @@ export default function Layout() {
       {/* Content area */}
       <div className="flex-1 min-w-0">
         <main className="pb-24 lg:pb-10">
-          <div className="w-full max-w-md mx-auto md:max-w-3xl lg:max-w-5xl">
+          <motion.div
+            key={location.pathname}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            className="w-full max-w-md mx-auto md:max-w-3xl lg:max-w-5xl"
+          >
             <Outlet />
-          </div>
+          </motion.div>
         </main>
       </div>
 
