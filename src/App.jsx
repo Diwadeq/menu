@@ -9,6 +9,8 @@ import SwipeMode from '@/pages/SwipeMode';
 import Planner from '@/pages/Planner';
 import ShoppingList from '@/pages/ShoppingList';
 import Creami from '@/pages/Creami';
+import SweetHub from '@/pages/SweetHub';
+import SavoryHub from '@/pages/SavoryHub';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
       <Routes>
         {/* Fullscreen — no bottom nav */}
         <Route path="/swipe" element={<SwipeMode />} />
+        <Route path="/sweet" element={<SweetHub />} />
+        <Route path="/savory" element={<SavoryHub />} />
         <Route path="/recipe/new" element={<RecipeForm />} />
         <Route path="/recipe/:id/edit" element={<RecipeForm />} />
         <Route path="/recipe/:id" element={<RecipeDetail />} />

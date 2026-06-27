@@ -5,6 +5,11 @@ import { Clock, X, Check, ChevronLeft } from "lucide-react";
 import DifficultyBars from "@/components/DifficultyBars";
 import { db } from "@/lib/store";
 
+async function getRecipesForCategories(categories) {
+  const all = await db.entities.Recipe.list();
+  return all.filter((r) => categories.includes(r.category));
+}
+
 const PLACEHOLDER_IMAGES = {
   Breakfast: "https://images.unsplash.com/photo-1484723091739-30990106e5d7?w=800&q=80",
   Dinner: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80",
@@ -99,19 +104,31 @@ function SwipeCard({ recipe, onSwipeLeft, onSwipeRight, isTop }) {
 export default function SwipeMode() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const category = searchParams.get("category") || "Dinner";
+
+  // Support both `categories=A,B,C` (multi) and legacy `category=X` (single)
+  const categoriesParam = searchParams.get("categories");
+  const singleCategory = searchParams.get("category");
+  const categories = categoriesParam
+    ? categoriesParam.split(",").map((c) => c.trim())
+    : singleCategory
+    ? [singleCategory]
+    : ["Dinner"];
+  const label = searchParams.get("label") || categories.join(" · ");
+
   const [recipes, setRecipes] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const [finished, setFinished] = useState(false);
 
   useEffect(() => {
-    db.entities.Recipe.filter({ category }).then((data) => {
-      setRecipes(data);
+    getRecipesForCategories(categories).then((data) => {
+      // Shuffle for variety
+      const shuffled = [...data].sort(() => Math.random() - 0.5);
+      setRecipes(shuffled);
       setLoading(false);
       if (data.length === 0) setFinished(true);
     });
-  }, [category]);
+  }, [categoriesParam, singleCategory]);
 
   function handleSwipeLeft() {
     const next = currentIndex + 1;
@@ -135,7 +152,7 @@ export default function SwipeMode() {
         >
           <ChevronLeft size={20} className="text-white" />
         </button>
-        <h1 className="text-white font-black text-lg">{category}</h1>
+        <h1 className="text-white font-black text-lg">{label}</h1>
         <div className="w-10" />
       </div>
 
@@ -152,8 +169,8 @@ export default function SwipeMode() {
             </h2>
             <p className="text-white/60 mb-6">
               {recipes.length === 0
-                ? `Add some ${category} recipes to your library first.`
-                : `You've seen all ${category} recipes.`}
+                ? `No ${label} recipes yet. Add some to your library!`
+                : `You've seen all ${label} recipes.`}
             </p>
             <button
               onClick={() => navigate("/library?add=true")}
