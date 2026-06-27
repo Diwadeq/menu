@@ -1,0 +1,24 @@
+{
+  "name": "CookingHistory",
+  "type": "object",
+  "properties": {
+    "recipeId": {
+      "type": "string"
+    },
+    "recipeTitle": {
+      "type": "string"
+    },
+    "cookedDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "recipeId",
+    "recipeTitle",
+    "cookedDate"
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "name": "Recipe",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Breakfast",
+        "Dinner",
+        "Sweets",
+        "Snacks",
+        "Salads",
+        "Soups",
+        "Smoothies"
+      ]
+    },
+    "difficulty": {
+      "type": "number",
+      "enum": [
+        1,
+        2,
+        3
+      ]
+    },
+    "prepTime": {
+      "type": "number"
+    },
+    "cookTime": {
+      "type": "number"
+    },
+    "servings": {
+      "type": "number"
+    },
+    "ingredients": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "calories": {
+      "type": "number"
+    },
+    "protein": {
+      "type": "number"
+    },
+    "carbs": {
+      "type": "number"
+    },
+    "fat": {
+      "type": "number"
+    },
+    "imageUrl": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "category",
+    "difficulty"
+  ]
+}

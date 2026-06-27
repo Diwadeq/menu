@@ -1,0 +1,111 @@
+{
+  "name": "MealPlan",
+  "type": "object",
+  "properties": {
+    "weekStartDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "monday": {
+      "type": "object",
+      "properties": {
+        "breakfast": {
+          "type": "string"
+        },
+        "lunch": {
+          "type": "string"
+        },
+        "dinner": {
+          "type": "string"
+        }
+      }
+    },
+    "tuesday": {
+      "type": "object",
+      "properties": {
+        "breakfast": {
+          "type": "string"
+        },
+        "lunch": {
+          "type": "string"
+        },
+        "dinner": {
+          "type": "string"
+        }
+      }
+    },
+    "wednesday": {
+      "type": "object",
+      "properties": {
+        "breakfast": {
+          "type": "string"
+        },
+        "lunch": {
+          "type": "string"
+        },
+        "dinner": {
+          "type": "string"
+        }
+      }
+    },
+    "thursday": {
+      "type": "object",
+      "properties": {
+        "breakfast": {
+          "type": "string"
+        },
+        "lunch": {
+          "type": "string"
+        },
+        "dinner": {
+          "type": "string"
+        }
+      }
+    },
+    "friday": {
+      "type": "object",
+      "properties": {
+        "breakfast": {
+          "type": "string"
+        },
+        "lunch": {
+          "type": "string"
+        },
+        "dinner": {
+          "type": "string"
+        }
+      }
+    },
+    "saturday": {
+      "type": "object",
+      "properties": {
+        "breakfast": {
+          "type": "string"
+        },
+        "lunch": {
+          "type": "string"
+        },
+        "dinner": {
+          "type": "string"
+        }
+      }
+    },
+    "sunday": {
+      "type": "object",
+      "properties": {
+        "breakfast": {
+          "type": "string"
+        },
+        "lunch": {
+          "type": "string"
+        },
+        "dinner": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "weekStartDate"
+  ]
+}

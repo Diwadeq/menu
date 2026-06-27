@@ -1,0 +1,33 @@
+{
+  "name": "ShoppingListItem",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "string"
+    },
+    "unit": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "checked": {
+      "type": "boolean",
+      "default": false
+    },
+    "isManual": {
+      "type": "boolean",
+      "default": false
+    },
+    "weekStartDate": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

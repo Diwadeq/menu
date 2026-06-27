@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 97%;
+    --foreground: 30 15% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 30 15% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 15% 15%;
+    --primary: 123 20% 28%;
+    --primary-foreground: 40 33% 97%;
+    --secondary: 120 15% 75%;
+    --secondary-foreground: 123 20% 20%;
+    --muted: 40 20% 93%;
+    --muted-foreground: 30 10% 50%;
+    --accent: 18 62% 47%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 40 20% 88%;
+    --input: 40 20% 88%;
+    --ring: 123 20% 28%;
+    --radius: 1rem;
+    --font-heading: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: ui-monospace, monospace;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+    font-family: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 800;
+  }
+}
+
+.swipe-card {
+  touch-action: none;
+  user-select: none;
+}
+
+.frosted-pill {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 999px;
+  padding: 4px 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.difficulty-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 16px;
+}
+
+.difficulty-bar {
+  width: 4px;
+  border-radius: 2px;
+  background: #d1d5db;
+}
+
+.difficulty-bar.filled {
+  background: #3D5A3E;
+}
+
+.difficulty-bar-1 { height: 7px; }
+.difficulty-bar-2 { height: 11px; }
+.difficulty-bar-3 { height: 15px; }
