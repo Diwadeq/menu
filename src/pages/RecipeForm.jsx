@@ -4,6 +4,17 @@ import { ChevronLeft, Plus, Trash2, Minus } from "lucide-react";
 import { db } from "@/lib/store";
 
 const CATEGORIES = ["Breakfast", "Dinner", "Sweets", "Snacks", "Salads", "Soups", "Smoothies"];
+
+// Where each category shows up when swiping on the Home screen
+const CATEGORY_SWIPE_HINT = {
+  Breakfast: "Sweet › Hot & Baked  ·  Savory › Quick Made",
+  Dinner: "Savory › Full Meal",
+  Sweets: "Sweet › Hot & Baked",
+  Snacks: "Sweet › Quick & No-Cook  ·  Savory › Quick Made",
+  Salads: "Savory › Quick Made",
+  Soups: "Savory › Full Meal",
+  Smoothies: "Sweet › Quick & No-Cook",
+};
 const CATEGORY_IMAGES = {
   Breakfast: "https://images.unsplash.com/photo-1484723091739-30990106e5d7?w=800&q=80",
   Dinner: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80",
@@ -169,6 +180,12 @@ export default function RecipeForm() {
                 {cat}
               </button>
             ))}
+          </div>
+          <div className="mt-3 bg-[#EFF6F0] border border-[#A8C5A0] rounded-xl px-3 py-2">
+            <p className="text-[11px] text-[#3D5A3E] font-semibold">
+              👆 When swiping this recipe will appear in:{" "}
+              <span className="font-black">{CATEGORY_SWIPE_HINT[form.category]}</span>
+            </p>
           </div>
         </Section>
 
