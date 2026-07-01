@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams, useNavigationType } from "react-router-dom";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { Clock, X, Check, ChevronLeft } from "lucide-react";
 import DifficultyBars from "@/components/DifficultyBars";
@@ -102,6 +102,7 @@ function SwipeCard({ recipe, x, rotate, likeOpacity, nopeOpacity, onDecision, dr
 export default function SwipeMode() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+  const navigationType = useNavigationType(); // "POP" = back/forward, "PUSH" = new navigation
 
   const categoriesParam = searchParams.get("categories");
   const singleCategory = searchParams.get("category");
@@ -132,16 +133,20 @@ export default function SwipeMode() {
       const byId = Object.fromEntries(data.map((r) => [r.id, r]));
       let order = null;
       let index = 0;
-      try {
-        const saved = JSON.parse(sessionStorage.getItem(stateKey) || "null");
-        if (saved && Array.isArray(saved.order)) {
-          const restored = saved.order.map((id) => byId[id]).filter(Boolean);
-          if (restored.length === data.length && restored.length > 0) {
-            order = restored;
-            index = Math.min(saved.index || 0, restored.length);
+      // Only resume the saved deck when arriving via browser back/forward (POP),
+      // e.g. returning from a recipe. Choosing the section again (PUSH) starts fresh.
+      if (navigationType === "POP") {
+        try {
+          const saved = JSON.parse(sessionStorage.getItem(stateKey) || "null");
+          if (saved && Array.isArray(saved.order)) {
+            const restored = saved.order.map((id) => byId[id]).filter(Boolean);
+            if (restored.length === data.length && restored.length > 0) {
+              order = restored;
+              index = Math.min(saved.index || 0, restored.length);
+            }
           }
-        }
-      } catch { /* ignore */ }
+        } catch { /* ignore */ }
+      }
       if (!order) {
         order = [...data].sort(() => Math.random() - 0.5);
         index = 0;
